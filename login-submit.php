@@ -1,14 +1,26 @@
 <?php
 session_start();
 
+$username = $_POST['user'];
+$password = $_POST['password'];
+$login = false;
+
 $users = [
  'admin' => 'password',
  'jack' => '123',
 ];
 
+foreach ($users as $key => $value) {
+    if ($key === $username && $value === $password) {
+        $_SESSION['user'] = $_POST['user'];
+        $_SESSION['score1'] = 0;
+        $_SESSION['score2'] = 0;
+        $login = true;
+    }
+}
 
-if (isset($_POST['user']) && !isset($_SESSION['users'])) {
-    echo "hello " . $_POST['user']; 
+if ($login == true) {
+    header("Location: ./index.php");
 }
 
 /*
