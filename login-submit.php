@@ -6,6 +6,11 @@ $users = [
  'jack' => '123',
 ];
 
+
+if (isset($_POST['user']) && !isset($_SESSION['users'])) {
+    echo "hello " . $_POST['user']; 
+}
+
 /*
 if (isset($_POST['user']) && !isset($_SESSION['user'])) {
     if ($users[$_POST['user']] == $_POST['password']) {
@@ -25,6 +30,7 @@ if (!isset($_SESSION['user'])) {
 
 
 
+/*
 if (isset($_POST['submit'])) {
     if (empty($_POST['user']) || empty($_POST['password'])) {
         echo "Invalid Username or Password";
@@ -37,5 +43,5 @@ if (isset($_POST['submit'])) {
     
     } 
 }
-
+*/
 ?>
