@@ -5,6 +5,12 @@ $username = $_POST['user'];
 $password = $_POST['password'];
 $login = false;
 
+
+if (isset($_POST['newuser'])) {
+    array_push($users, array($_POST['newuser'] => $_POST['newpassword']));
+}
+
+
 $users = [
  'admin' => 'password',
  'jack' => '123',
@@ -22,6 +28,13 @@ foreach ($users as $key => $value) {
 if ($login == true) {
     header("Location: ./index.php");
 }
+else {
+    echo "There was a error with your Username or Password. Please try again.";
+}
+
+
+
+
 
 /*
 if (isset($_POST['user']) && !isset($_SESSION['user'])) {
