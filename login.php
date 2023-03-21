@@ -21,7 +21,7 @@ session_start();
             <input type="submit" name="submit" value="Login"></input>
             <br>
             <br>
-            Don't have an account? <a href="">Sign up</a>
+            Don't have an account? <a href="./signup.php">Sign up</a>
         </form>
     </div>
 </body>

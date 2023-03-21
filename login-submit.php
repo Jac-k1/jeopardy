@@ -1,20 +1,24 @@
 <?php
 session_start();
 
-$username = $_POST['user'];
-$password = $_POST['password'];
-$login = false;
-
-
-if (isset($_POST['newuser'])) {
-    array_push($users, array($_POST['newuser'] => $_POST['newpassword']));
+if (isset($_POST['user'])) {
+    $username = $_POST['user'];
+    $password = $_POST['password'];
+    $login = false;
 }
 
-
 $users = [
- 'admin' => 'password',
- 'jack' => '123',
-];
+    'admin' => 'password',
+    'jack' => '123',
+   ];
+
+/*
+if (isset($_POST['newuser'])) {
+    array_push($users, array($_POST['newuser'] => $_POST['newpassword']));
+    $login = true;
+}
+*/
+
 
 foreach ($users as $key => $value) {
     if ($key === $username && $value === $password) {
