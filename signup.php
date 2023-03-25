@@ -13,7 +13,7 @@
             <input type="text" name="user" maxlength="16" size="15" placeholder="Username" required></input>
             <br>
             <br>
-            <input type="text" name="password" maxlength="16" size="15" placeholder="Password" required></input>
+            <input type="password" name="password" maxlength="16" size="15" placeholder="Password" required></input>
             <br>
             <br>
             <input type="submit" name="signup" value="Sign Up"></input>
