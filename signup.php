@@ -8,18 +8,18 @@
 
 <body>
     <div>
-        <form action="./login-submit.php" method="post">
+        <form action="./signup-submit.php" method="post">
             <h1>Sign Up</h1>
-            <input type="text" name="newuser" maxlength="16" size="15" placeholder="Username" required></input>
+            <input type="text" name="user" maxlength="16" size="15" placeholder="Username" required></input>
             <br>
             <br>
-            <input type="text" name="newpassword" maxlength="16" size="15" placeholder="Password" required></input>
+            <input type="text" name="password" maxlength="16" size="15" placeholder="Password" required></input>
             <br>
             <br>
-            <input type="submit" name="submit" value="Sign Up"></input>
+            <input type="submit" name="signup" value="Sign Up"></input>
             <br>
             <br>
-            Already got an account? <a href="">Login</a>
+            Already got an account? <a href="./login.php">Login</a>
         </form>
     </div>
 </body>

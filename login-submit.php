@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['user'])) {
+if (isset($_POST['login'])) {
     $username = $_POST['user'];
     $password = $_POST['password'];
     $login = false;
@@ -73,4 +73,5 @@ if (isset($_POST['submit'])) {
     } 
 }
 */
+
 ?>
