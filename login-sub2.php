@@ -17,10 +17,6 @@ if (isset($_POST['login'])) {
 
 function loginUser($username, $password)
 {
-    /*
-    Finish this function to check if username and password 
-    from file match that which is passed from the form
-    */
 
     $db = "./user.csv";
     $handle = fopen($db, 'r');
