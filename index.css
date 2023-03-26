@@ -1,0 +1,22 @@
+* {
+    color: white;
+}
+
+body {
+    background-image: url("./img/jeopardy__season_27_logo_background_v2_by_onscreenthatprods_desj4av-pre.jpg");
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+}
+
+.left {
+    float: left;
+    margin-left: 400px;
+}
+
+.right {
+    float: right;
+    margin-right: 400px;
+}
