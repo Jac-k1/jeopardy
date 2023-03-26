@@ -9,10 +9,11 @@
         header("location:index.php");
     }
 
+    echo("<h1>Question: ".$_SESSION['Question']."</h1><br>");
+
     $answer = "testing test test";
-    echo("Question :".$_SESSION['Question']."<br>");
     if(isset($_POST['showAnswer'])){
-        echo("What is ".$answer);
+        echo("<h2>What is ".$answer."</h2");
     }
 
 ?>
@@ -20,9 +21,15 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<style>
+    h1, h2, #buttons{
+        text-align: center;
+    }
+</style>
 </head>
 <body>
-    <form method="post" action="">
+<div id = buttons>
+    <form method="post" action="" onclick="this.style.display='none'">
         <input type="submit" name="showAnswer" value="Show Answer">
     </form>
     <form method="post" action="">
