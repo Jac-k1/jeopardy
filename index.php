@@ -6,6 +6,7 @@ session_start();
 </html>
 
 <?php
+
 include("./jeopardy.html");
 
 echo "Team One: " . $_SESSION['score1'];
