@@ -1,16 +1,5 @@
 <?php
     session_start();
-    if(isset($_POST['team1'])){
-        $_SESSION['score1'] = $_SESSION['score1'] + 100;
-        header("location:index.php");
-    }
-    if(isset($_POST['team2'])){
-        $_SESSION['score2'] = $_SESSION['score2'] + 100;
-        header("location:index.php");
-    }
-    if(isset($_POST['incorrect'])){
-        header("location:index.php");
-    }
 
     #a function i found online that just works
     function csv_to_multidimension_array($filename='', $delimiter=',')
@@ -36,20 +25,23 @@
     $question = $questionsArr[(int)$row][(int)$col];
     $answer = $answersArr[(int)$row][(int)$col];
 
-
-/*
-    $linesA = file('answers.txt');
-    $linesQ = file('questions.txt');
-    $row = substr((int)$_GET['id'],0);
-    $col = substr((int)$_GET['id'],1);
-    $questionList = explode(",",$linesQ[$row]);
-    $answerList = explode(",",$linesA[$row]);
-    $question = $questionList[(int)$col];
-    $answer = $answerList[(int)$col];
-*/
     echo("<br><br><h1>Question: ".$question."</h1><br>");
     if(isset($_POST['showAnswer'])){
         echo("<h2>What is ".$answer."</h2><br>");
+    }
+
+    $pointVal = ($row+1)*100;
+
+    if(isset($_POST['team1'])){
+        $_SESSION['score1'] = $_SESSION['score1'] + $pointVal;
+        header("location:index.php");
+    }
+    if(isset($_POST['team2'])){
+        $_SESSION['score2'] = $_SESSION['score2'] + $pointVal;
+        header("location:index.php");
+    }
+    if(isset($_POST['incorrect'])){
+        header("location:index.php");
     }
 
 ?>
@@ -65,8 +57,8 @@
         <input type="submit" name="showAnswer" value="Show Answer">
     </form>
     <form method="post" action="">
-        <input type="submit" name="team1" value="Team 1 +100">
-        <input type="submit" name="team2" value="Team 2 +100">
+        <input type="submit" name="team1" value="Team 1 + <?php echo $pointVal; ?>">
+        <input type="submit" name="team2" value="Team 2 + <?php echo $pointVal; ?>">
         <input type="submit" name="incorrect" value="Incorrect Answer">
     </form>
 </body>
