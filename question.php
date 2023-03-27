@@ -12,9 +12,42 @@
         header("location:index.php");
     }
 
-    echo("<br><br><h1>Question: ".$_SESSION['Question']."</h1><br>");
+    #a function i found online that just works
+    function csv_to_multidimension_array($filename='', $delimiter=',')
+    {
+        if(!file_exists($filename) || !is_readable($filename)) {
+            return false;
+        }
+        $header = NULL;
+        $data = array();
+        if (($handle = fopen($filename, 'r')) !== false) {
+            while (($row = fgetcsv($handle, 1000, $delimiter)) !== false ) {
+                $data[] = $row;
+            }
+            fclose($handle);
+        }
+        return $data;
+    }
 
-    $answer = "testing test test";
+    $questionsArr = csv_to_multidimension_array("questions.txt",",");
+    $answersArr = csv_to_multidimension_array("answers.txt",",");
+    $row = substr((float)$_GET['id'],0,1)-1;
+    $col = substr((int)$_GET['id'],1,1)-1;
+    $question = $questionsArr[(int)$row][(int)$col];
+    $answer = $answersArr[(int)$row][(int)$col];
+
+
+/*
+    $linesA = file('answers.txt');
+    $linesQ = file('questions.txt');
+    $row = substr((int)$_GET['id'],0);
+    $col = substr((int)$_GET['id'],1);
+    $questionList = explode(",",$linesQ[$row]);
+    $answerList = explode(",",$linesA[$row]);
+    $question = $questionList[(int)$col];
+    $answer = $answerList[(int)$col];
+*/
+    echo("<br><br><h1>Question: ".$question."</h1><br>");
     if(isset($_POST['showAnswer'])){
         echo("<h2>What is ".$answer."</h2><br>");
     }
